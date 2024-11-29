@@ -90,11 +90,16 @@ extension ViewController:UICollectionViewDelegate, UICollectionViewDataSource {
         imageList.count
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
         cell.configure(with: imageList[indexPath.row]!)
         
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let newVc = ViewController()
+        self.navigationController?.pushViewController(newVc, animated: true)
     }
 }
 
